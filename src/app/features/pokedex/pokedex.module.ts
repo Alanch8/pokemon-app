@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { PokedexRoutingModule } from "./pokedex-routing.module";
 import { PokemonComponent } from "./pokemon/pokemon.component";
-import { PokedexComponent } from './pokedex/pokedex.component';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
 
 @NgModule({
   declarations: [PokemonComponent, PokedexComponent],
