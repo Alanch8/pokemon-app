@@ -1,6 +1,11 @@
-
 <h2>Pokémon</h2>
+<!-- <app-pokedex></app-pokedex> -->
+<button (click)="pokedexAsc()">Asc</button>
+<button (click)="pokedexDesc()">Desc</button>
+<button (click)="pokedexAZ()">A-Z</button>
+<button (click)="pokedexZA()">Z-A</button>
 
+<!-- <input matInput (keyup)="applyFilter($event)" #input /> -->
 <ul>
   <li *ngFor="let pokemon of pokemon$ | async">
     <a routerLink="/pokedex/{{ pokemon.id }}">
