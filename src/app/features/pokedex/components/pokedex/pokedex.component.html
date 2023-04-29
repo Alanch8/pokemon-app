@@ -1,1 +1,10 @@
-<p>pokedex works!</p>
+
+<h2>Pokémon</h2>
+
+<ul>
+  <li *ngFor="let pokemon of pokemon$ | async">
+    <a routerLink="/pokedex/{{ pokemon.id }}">
+      <span>{{ pokemon.id }}</span> {{ pokemon.name }}
+    </a>
+  </li>
+</ul>

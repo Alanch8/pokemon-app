@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { PokemonComponent } from "./features/pokedex/pokemon/pokemon.component";
 import { Error404PageComponent } from "./shared/pages/error404-page/error404-page.component";
 
 const routes: Routes = [
@@ -13,10 +12,6 @@ const routes: Routes = [
     path: "pokedex",
     loadChildren: () =>
       import("./features/pokedex/pokedex.module").then((m) => m.PokedexModule),
-  },
-  {
-    path: "pokemon",
-    component: PokemonComponent
   },
   {
     path: "404",
