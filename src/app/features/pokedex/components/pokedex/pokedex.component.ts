@@ -1,11 +1,21 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
+// import { filter, tap } from "rxjs/operators";
 import { map } from "rxjs/operators";
 import { Species } from "src/app/shared/interfaces/schema";
 import { GetPokemonListService } from "src/app/shared/services/get-pokemon-list.service";
 import { PokemonDescService } from "src/app/shared/services/pokemon-desc.service";
 import { PokemonAZService } from "src/app/shared/services/pokemon-az.service";
 import { PokemonZAService } from "src/app/shared/services/pokemon-za.service";
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+
+export interface SpeciesListResponse {
+  species: Species[];
+}
 
 @Component({
   selector: "app-pokedex",
@@ -21,39 +31,59 @@ import { PokemonZAService } from "src/app/shared/services/pokemon-za.service";
   styleUrls: ["./pokedex.component.scss"],
 })
 export class PokedexComponent implements OnInit {
+  public myform!: FormGroup;
   pokemon$!: Observable<Species[]>;
-  orderBy!: unknown;
+  filteredPokemon$!: Observable<Species[]>;
+  id = "id";
+  name = "name";
+  searchValue!: string;
+  // orderBy!: unknown;
 
   constructor(
-    private getPokemonList: GetPokemonListService,
-    private pokemonDescendent: PokemonDescService,
-    private pokemonA2Z: PokemonAZService,
-    private pokemonZ2A: PokemonZAService
+    private getPokemonList: GetPokemonListService // private pokemonDescendent: PokemonDescService, // private pokemonA2Z: PokemonAZService, // private pokemonZ2A: PokemonZAService
   ) {}
 
   ngOnInit() {
     // this.select();
     // this.callSelector();
     this.pokedexAsc();
-    // this.pokedexDesc();
-    // this.pokedexHighest();
-    // this.pokedexLowest();
+    this.myform = new FormGroup({
+      search: new FormControl("", [Validators.required]),
+    });
   }
 
-  select(select: string) {
-    this.orderBy = this.callSelector(select);
-  }
+  // select(select: string) {
+  //   this.orderBy = this.callSelector(select);
+  // }
 
-  callSelector(value: string) {
-    if (value === "asc") {
-      return this.pokedexAsc();
-    } else if (value === "desc") {
-      return this.pokedexDesc();
-    } else if (value === "az") {
-      return this.pokedexAZ();
-    } else if (value === "za") {
-      return this.pokedexZA();
-    }
+  // callSelector(value: string) {
+  //   if (value === "asc") {
+  //     return this.pokedexAsc();
+  //   } else if (value === "desc") {
+  //     return this.pokedexDesc();
+  //   } else if (value === "az") {
+  //     return this.pokedexAZ();
+  //   } else if (value === "za") {
+  //     return this.pokedexZA();
+  //   }
+  // }
+
+  applyFilter() {
+    this.pokemon$
+      .pipe(
+        map((pokemons) =>
+          pokemons.filter((pokemon) => {
+            return (
+              pokemon.name ===
+                this.myform.controls["search"].value
+                  ?.trim()
+                  .toLocaleLowerCase() ||
+              pokemon.id == Number(this.myform.controls["search"].value)
+            );
+          })
+        )
+      )
+      .subscribe((pokemon$) => (this.filteredPokemon$ = of(pokemon$)));
   }
 
   pokedexAsc() {
@@ -62,29 +92,27 @@ export class PokedexComponent implements OnInit {
       .valueChanges.pipe(map((result) => result.data.species));
   }
 
+  // pokedexAsc() {
+  //   this.pokemon$ = this.getPokemonList
+  //     .watch({ limit: 1008, offset: 0, order_by: { [this.id]: "asc" } })
+  //     .valueChanges.pipe(map((result) => result.data.species));
+  // }
+
   pokedexDesc() {
-    this.pokemon$ = this.pokemonDescendent
-      .watch({ limit: 1008, offset: 0 })
+    this.pokemon$ = this.getPokemonList
+      .watch({ limit: 1008, offset: 0, order_by: { [this.id]: "desc" } })
       .valueChanges.pipe(map((result) => result.data.species));
   }
 
   pokedexAZ() {
-    this.pokemon$ = this.pokemonA2Z
-      .watch({ limit: 1008, offset: 0 })
+    this.pokemon$ = this.getPokemonList
+      .watch({ limit: 1008, offset: 0, order_by: { [this.name]: "asc" } })
       .valueChanges.pipe(map((result) => result.data.species));
   }
 
   pokedexZA() {
-    this.pokemon$ = this.pokemonZ2A
-      .watch({ limit: 1008, offset: 0 })
+    this.pokemon$ = this.getPokemonList
+      .watch({ limit: 1008, offset: 0, order_by: { [this.name]: "desc" } })
       .valueChanges.pipe(map((result) => result.data.species));
   }
-
-  // applyFilter(event: Event) {
-  //   const filterValue = (event.target as HTMLInputElement).value;
-  //   this.pokemon$.filter = filterValue.trim().toLowerCase();
-  //   if (this.pokemon$.paginator) {
-  //     this.pokemon$.paginator.firstPage();
-  //   }
-  // }
 }

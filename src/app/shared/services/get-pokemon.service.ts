@@ -1,4 +1,3 @@
-
 import { Injectable } from "@angular/core";
 import { gql, Query } from "apollo-angular";
 import { Species } from "../interfaces/schema";
