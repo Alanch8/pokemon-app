@@ -49,8 +49,9 @@ a:hover{
 }
 
 .activeElement .card-content {
+  border-radius: 0px 0px 10px 10px;
   display: flex;
-  height: 120px;
+  height: 100px;
 }
 
 .activeElement .id {
@@ -63,7 +64,7 @@ a:hover{
   font-family: "BundayBold", sans-serif;
   font-size: 80px;
   position: relative;
-  top: -320px;
+  top: -200px;
   right: -40px;
   opacity: 0.3;
   z-index: 1;
@@ -78,7 +79,7 @@ a:hover{
 
 .activeElement .tipo {
   position: absolute;
-  top: 265px;
+  top: 250px;
   left: 75px;
   border-radius: 2px;
   background-color: rgb(random(255), random(255), random(255));
@@ -95,7 +96,7 @@ a:hover{
 
 .activeElement .habilidad {
   position: absolute;
-  top: 297px;
+  top: 282px;
   left: 75px;
   font-family: "BundayRegular", sans-serif;
   font-style: italic;
@@ -126,8 +127,8 @@ a:hover{
 .activeElement .idBig {
   font-size: 120px;
   position: absolute;
-  top: -85px;
-  right: 20px;
+  top: 100px;
+  right: 15px;
   opacity: 0.3;
   z-index: 2;
   color: #fff;
@@ -203,7 +204,7 @@ a:hover{
   font-size: 20px;
   padding: 0;
   position: absolute;
-  top: -40px;
+  top: -35px;
   left: 250px;
   padding: 10px 100px 5px 100px;
   z-index: 1;

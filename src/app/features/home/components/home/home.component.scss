@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: #fff;
-  font-family: "BundayBold", sans-serif;
+  font-family: "BundayBold", sans-serif !important;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -71,6 +71,7 @@ span {
 }
 
 .card-content-1 h3 {
+  font-family: "BundayBold", sans-serif !important;
   margin-top: 0px;
   font-weight: 700;
 }
@@ -442,6 +443,10 @@ span {
 .card-content-11 h3 {
   margin-top: 0px;
   font-weight: 700;
+}
+
+.font-title{
+  font-family: "BundayBold", sans-serif !important;
 }
 
 @media screen and (min-width: 768px) {
