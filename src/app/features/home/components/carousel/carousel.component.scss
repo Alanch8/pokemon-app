@@ -1,0 +1,196 @@
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-bottom: 120px;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  background-color: #232323;
+  width: 100%;
+  height: 320px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.pokemon-card {
+  background-color: #525252;
+  height: 220px;
+  margin: 3px 1px 0 1px;
+}
+
+.pokemon-card img {
+  width: auto;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.card-content {
+  font-family: "BundayBold", sans-serif;
+  text-transform: capitalize;
+  background-color: #313131;
+  height: 95px;
+  margin: -19px 1px 0px 1px;
+  padding: 10px;
+}
+
+.card-content-info {
+  display: none;
+}
+
+.activeElement .card-content {
+  display: flex;
+  height: 120px;
+}
+
+.activeElement .id {
+  position: absolute;
+  top: 220px;
+  right: 15px;
+}
+
+.idBig {
+  font-family: "BundayBold", sans-serif;
+  font-size: 80px;
+  position: relative;
+  top: -320px;
+  right: -40px;
+  opacity: 0.3;
+  z-index: 1;
+  color: #232323;
+}
+
+.activeElement .tipoTitle {
+  position: absolute;
+  top: 250px;
+  left: 20px;
+}
+
+.activeElement .tipo {
+  position: absolute;
+  top: 265px;
+  left: 75px;
+  border-radius: 2px;
+  background-color: rgb(random(255), random(255), random(255));
+  opacity: 0.8;
+  color: #2b2b2b;
+  padding: 2px;
+}
+
+.activeElement .habilidadTitle {
+  position: absolute;
+  top: 280px;
+  left: 20px;
+}
+
+.activeElement .habilidad {
+  position: absolute;
+  top: 297px;
+  left: 75px;
+  font-family: "BundayRegular", sans-serif;
+  font-style: italic;
+}
+
+.activeElement .pokemon-card {
+  z-index: 1;
+}
+
+.activeElement .card-content-info {
+  display: block;
+  color: #eeeeee;
+}
+
+.activeElement {
+  transform: scale(1.2);
+  margin: 29px 23px 0 23px;
+}
+
+.activeElement img {
+  position: relative;
+  opacity: 1;
+  z-index: 3;
+  transform: scale(1.1);
+  transition: transform 0.5s ease-out;
+}
+
+.activeElement .idBig {
+  font-size: 120px;
+  position: absolute;
+  top: -85px;
+  right: 20px;
+  opacity: 0.3;
+  z-index: 2;
+  color: #fff;
+}
+
+.btn-prev {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  background-color: #2b2b2b;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  padding: 0 10px;
+  cursor: pointer;
+  height: 92px;
+  width: 76px;
+  background: url(https://assets.pokemon.com/static2/_ui/img/chrome/slider-btns.png)
+    no-repeat 0 0;
+  display: none;
+  transition: display 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.btn-prev:hover {
+  opacity: 1;
+}
+
+.btn-next {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: #2b2b2b;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  padding: 0 10px;
+  cursor: pointer;
+  height: 92px;
+  width: 76px;
+  background: url(https://assets.pokemon.com/static2/_ui/img/chrome/slider-btns.png)
+    no-repeat 0 0;
+  background-position: -100px 0;
+  display: none;
+  transition: display 0.3s ease;
+  transition: display 0.3s ease;
+}
+
+.container:hover .btn-prev {
+  display: block;
+  opacity: 0.8;
+}
+
+.container:hover .btn-next {
+  display: block;
+  opacity: 0.8;
+}
+
+.container .btn-prev:hover {
+  opacity: 1;
+}
+
+.container .btn-next:hover {
+  opacity: 1;
+}
