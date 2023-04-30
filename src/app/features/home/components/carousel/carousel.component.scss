@@ -32,6 +32,7 @@ a:hover{
   width: auto;
   height: 100%;
   opacity: 0.5;
+  transition: opacity 0.3s ease-out;
 }
 
 .card-content {
@@ -177,20 +178,56 @@ a:hover{
   transition: display 0.3s ease;
 }
 
-.container:hover .btn-prev {
+.container-arrows:hover .btn-prev {
   display: block;
   opacity: 0.8;
 }
 
-.container:hover .btn-next {
+.container-arrows:hover .btn-next {
   display: block;
   opacity: 0.8;
 }
 
-.container .btn-prev:hover {
+.container-arrows .btn-prev:hover {
   opacity: 1;
 }
 
-.container .btn-next:hover {
+.container-arrows .btn-next:hover {
+  opacity: 1;
+}
+
+.title{
+  font-family: "BundayRegular", sans-serif;
+  color: #ffffff9f;
+  margin: 0 0 0 20px;
+  font-size: 20px;
+  padding: 0;
+  position: absolute;
+  top: -40px;
+  left: 250px;
+  padding: 10px 100px 5px 100px;
+  z-index: 1;
+  background-color: #232323;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.pokedex{
+  font-family: "BundayRegular", sans-serif;
+  color: #ffffff9f;
+  margin: 0 0 0 20px;
+  font-size: 20px;
+  padding: 0;
+  position: absolute;
+  bottom: -90px;
+  right: 190px;
+  padding: 10px 20px 10px 20px;
+  z-index: 1;
+  background-color: #232323;
+  opacity: 0.8;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pokedex:hover{
   opacity: 1;
 }
