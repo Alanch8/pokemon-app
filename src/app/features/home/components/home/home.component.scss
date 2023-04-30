@@ -1,0 +1,535 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+.homePage {
+  background: #fff
+    url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  margin: 60px auto;
+  max-width: 1280px;
+  overflow: hidden;
+  position: relative;
+  padding: 0px 10px 0px 10px;
+}
+
+.news {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  font-family: "BundayBold", sans-serif;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  clear: both;
+  margin: 60px auto;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 5px 10px 5px;
+}
+
+span {
+  font-style: italic;
+}
+
+.card-1 {
+  font-size: 20px;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: rgba(27, 83, 187, 0.95);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-1:hover {
+  background-color: rgb(27, 83, 187);
+  transform: translateY(-5px);
+}
+
+.card-1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pegi {
+  display: none;
+}
+
+.card-content-1 {
+  padding: 20px;
+}
+
+.card-content-1 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-content-1 p {
+  margin-top: -10px;
+  font-weight: 300;
+  color: aqua;
+  opacity: 0.4;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.card-2 {
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(230, 187, 47, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-2:hover {
+  background-color: rgb(230, 188, 47);
+  transform: translateY(-5px);
+}
+
+.card-2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content-2 {
+  padding: 15px;
+  font-size: 15px;
+}
+
+.card-content-2 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-3 {
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(255, 144, 196, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-3:hover {
+  background-color: rgb(255, 144, 196);
+  transform: translateY(-5px);
+}
+
+.card-3 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content-3 {
+  padding: 15px;
+  font-size: 15px;
+}
+
+.card-content-3 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.col-66 {
+  width: 100%;
+}
+
+.col-33 {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+}
+
+.card-4 {
+  border-radius: 10px;
+  width: 97%;
+  height: 310px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(227, 52, 13, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-4:hover {
+  background-color: rgb(227, 53, 13);
+  transform: translateY(-5px);
+}
+
+.card-4 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content-4 {
+  padding: 15px;
+  font-size: 18px;
+}
+
+.card-content-4 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-5 {
+  border-radius: 10px;
+  width: 97%;
+  height: 310px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(133, 90, 201, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-5:hover {
+  background-color: rgb(133, 90, 201);
+  transform: translateY(-5px);
+}
+
+.card-5 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content-5 {
+  padding: 15px;
+  font-size: 18px;
+}
+
+.card-content-5 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-6 {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  width: 97%;
+  height: 120px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(77, 173, 91, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-6:hover {
+  background-color: rgb(77, 173, 91);
+  transform: translateY(-5px);
+}
+
+.card-6 img {
+  width: auto;
+  height: 150px;
+  display: block;
+}
+
+.card-content-6 {
+  padding: 15px;
+  font-size: 15px;
+}
+
+.card-content-6 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-9 {
+  font-size: 20px;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: rgba(227, 52, 13, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-9:hover {
+  background-color: rgb(227, 53, 13);
+  transform: translateY(-5px);
+}
+
+.card-9 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.card-content-9 {
+  padding: 20px;
+}
+
+.card-content-9 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-content-9 p {
+  margin-top: -10px;
+  font-weight: 300;
+  color: rgb(52, 10, 0);
+  opacity: 0.4;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.card-8 {
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(195, 0, 91, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-8:hover {
+  background-color: rgb(195, 0, 91);
+  transform: translateY(-5px);
+}
+
+.card-8 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content-8 {
+  padding: 15px;
+  font-size: 15px;
+}
+
+.card-content-8 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-7 {
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(199, 170, 121, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-7:hover {
+  background-color: rgb(199, 170, 121);
+  transform: translateY(-5px);
+}
+
+.card-7 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content-7 {
+  padding: 15px;
+  font-size: 15px;
+}
+
+.card-content-7 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-10 {
+  border-radius: 10px;
+  width: 97%;
+  height: 380px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(48, 168, 215, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-10:hover {
+  background-color: rgb(48, 167, 215);
+  transform: translateY(-5px);
+}
+
+.card-10 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content-10 {
+  padding: 15px;
+  font-size: 18px;
+}
+
+.card-content-10 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+.card-11 {
+  border-radius: 10px;
+  width: 97%;
+  height: 370px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: rgba(48, 48, 48, 0.9);
+  color: #fff;
+  margin: 5px 5px 5px 5px;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.card-11:hover {
+  background-color: rgba(49, 49, 49);
+  transform: translateY(-5px);
+}
+
+.card-11 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content-11 {
+  padding: 15px;
+  font-size: 18px;
+}
+
+.card-content-11 h3 {
+  margin-top: 0px;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .homePage {
+    padding: 0px 0px 0px 0px;
+  }
+
+  .news {
+    flex-direction: row;
+    margin: 60px auto;
+    max-width: 1024px;
+    padding: 25px 40px 25px 40px;
+  }
+
+  .card-1 {
+    width: 610px;
+  }
+  
+  .card-1 img {
+    border-radius: 10px 10px 0px 0px ;
+  }
+
+  .pegi {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+  }
+
+  .card-2 {
+    width: 300px;
+  }
+
+  .card-3 {
+    width: 300px;
+  }
+
+  .col-66 {
+    width: 66.6666666667%;
+  }
+
+  .col-33 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 33.3333333333%;
+  }
+
+  .flex {
+    display: flex;
+    justify-self: center;
+  }
+
+  .card-4 {
+    width: 300px;
+  }
+
+  .card-5 {
+    width: 300px;
+  }
+
+  .card-6 {
+    width: 300px;
+  }
+
+  .card-9 {
+    width: 610px;
+  }
+  
+  .card-9 img {
+    border-radius: 10px 10px 0px 0px ;
+  }
+
+  .card-8 {
+    width: 300px;
+  }
+
+  .card-7 {
+    width: 300px;
+  }
+
+  .card-10 {
+    width: 300px;
+  }
+
+  .card-11 {
+    width: 300px;
+  }
+
+}

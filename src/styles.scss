@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: #424242 url(https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png);
+    //font-family: "Flexo-Regular",arial,sans-serif;
+    font-size: 16px;
+    color: #fff;
+    height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+    font-family: BundayBold;
+    src: url(assets/fonts/BundayClean-Bold.otf) format("openType");
+}
+
+@font-face {
+    font-family: BundayRegular;
+    src: url(assets/fonts/BundayClean-Regular.ttf) format("openType");
+}
+
+@font-face {
+    font-family: BundayLight;
+    src: url(assets/fonts/BundayClean-Light.ttf) format("openType");
+}
+
+

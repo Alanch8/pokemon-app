@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable, of } from "rxjs";
-// import { filter, tap } from "rxjs/operators";
-import { map } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 import { Species } from "src/app/shared/interfaces/schema";
 import { GetPokemonListService } from "src/app/shared/services/get-pokemon-list.service";
 import { PokemonDescService } from "src/app/shared/services/pokemon-desc.service";
@@ -89,7 +88,11 @@ export class PokedexComponent implements OnInit {
   pokedexAsc() {
     this.pokemon$ = this.getPokemonList
       .watch({ limit: 1008, offset: 0 })
-      .valueChanges.pipe(map((result) => result.data.species));
+      .valueChanges
+      .pipe(
+        map((result) => result.data.species),
+        tap((result) => console.log(result))
+      );
   }
 
   // pokedexAsc() {
