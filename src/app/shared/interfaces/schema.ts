@@ -1,4 +1,3 @@
-
 export interface Species {
     name: string;
     id: number;

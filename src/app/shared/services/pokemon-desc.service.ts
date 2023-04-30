@@ -19,7 +19,6 @@ export class PokemonDescService extends Query<SpeciesListResponse> {
       ) {
         name
         id
-        generation_id
       }
     }
   `;

@@ -19,7 +19,6 @@ export class PokemonZAService extends Query<SpeciesListResponse> {
       ) {
         name
         id
-        generation_id
       }
     }
   `;

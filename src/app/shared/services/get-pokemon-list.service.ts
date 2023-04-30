@@ -19,8 +19,22 @@ export class GetPokemonListService extends Query<SpeciesListResponse> {
       ) {
         name
         id
-        generation_id
       }
     }
   `;
+  //   query pokemonList(
+  //     $limit: Int!
+  //     $offset: Int!
+  //     $order_by: [pokemon_v2_pokemon_order_by!]
+  //   ) {
+  //     species: pokemon_v2_pokemonspecies(
+  //       order_by: $order_by
+  //       limit: $limit
+  //       offset: $offset
+  //     ) {
+  //       name
+  //       id
+  //     }
+  //   }
+  // `;
 }
