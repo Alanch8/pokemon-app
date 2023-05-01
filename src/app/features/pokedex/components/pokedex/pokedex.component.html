@@ -12,14 +12,10 @@
     <li *ngFor="let pokemon of pokemon$ | async">
       <a routerLink="/pokedex/{{ pokemon.id }}">
         <span>{{ pokemon.id }}</span> {{ pokemon.name }}
-        <span
-          ><img
-            [src]="
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' +
-              pokemon.id +
-              '.png'
-            "
-        /></span>
+        <span><img [src]="api_image + pokemon.id + api_format_image" /></span>
+        <span>{{
+          pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name
+        }}</span>
       </a>
     </li>
   </ul>
@@ -29,14 +25,10 @@
     <li *ngFor="let pokemon of filteredPokemon$ | async">
       <a routerLink="/pokedex/{{ pokemon.id }}">
         <span>{{ pokemon.id }}</span> {{ pokemon.name }}
-        <span
-          ><img
-            [src]="
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' +
-              pokemon.id +
-              '.png'
-            "
-        /></span>
+        <span><img [src]="api_image + pokemon.id + api_format_image" /></span>
+        <span>{{
+          pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name
+        }}</span>
       </a>
     </li>
   </ul>

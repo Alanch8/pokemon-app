@@ -7,10 +7,7 @@ import { CarouselComponent } from "./components/carousel/carousel.component";
 import { CoreModule } from "src/app/core/core.module";
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    CarouselComponent
-  ],
+  declarations: [HomeComponent, CarouselComponent],
   imports: [CommonModule, HomeRoutingModule, CoreModule],
 })
 export class HomeModule {}
