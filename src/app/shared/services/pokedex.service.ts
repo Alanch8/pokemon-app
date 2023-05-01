@@ -16,6 +16,7 @@ export class GetPokedex extends Query<PokedexArray> {
         order_by: $order_by
         limit: $limit
         offset: $offset
+        where: { id: { _gte: 1, _lte: 1008 } }
       ) {
         id
         name
