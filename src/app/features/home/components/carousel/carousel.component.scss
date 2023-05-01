@@ -77,15 +77,134 @@ a:hover{
   left: 20px;
 }
 
-.activeElement .tipo {
+.tipos{
+  font-family: "BundayRegular", sans-serif;
+  display: flex;
   position: absolute;
   top: 250px;
-  left: 75px;
-  border-radius: 2px;
-  background-color: rgb(random(255), random(255), random(255));
+  left: 70px;
+}
+
+.activeElement .tipo {
+  width: auto;
+  margin: 0px 2px;
+  border-radius: 30px;
   opacity: 0.8;
+  padding: 4px 8px 2px 8px;
+}
+
+.fire {
+  //color: #2b2b2b;
+  color: #f1f1f1;
+  background-color: #e60000d3;
+}
+
+.grass {
+  //color: #f1f1f1;
   color: #2b2b2b;
-  padding: 2px;
+  background-color: #00e000d3;
+}
+
+.water {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #0000ddd0;
+}
+
+.electric {
+  //color: #f1f1f1;
+  color: #2b2b2b;
+  background-color: #e0e000d2;
+}
+
+.ice {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #00dfdfd7;
+}
+
+.fighting {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #db00dbd3;
+}
+
+.poison {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #830283d5;
+}
+
+.ground {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #808000c7;
+}
+
+.flying {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #008080d7;
+}
+
+.psychic {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #ff1491c4;
+}
+
+.bug {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #008000c0;
+}
+
+.rock {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #808080be;
+}
+
+.ghost {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #000080c9;
+}
+
+.dark {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #000000ce;
+}
+
+.dragon {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #800000b2;
+}
+
+.steel {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #c0c0c0c7;
+}
+
+.fairy {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #ffc0cbde;
+}
+
+.normal {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #a9a9a9d2;
+}
+
+.shadow {
+  color: #f1f1f1;
+  //color: #2b2b2b;
+  background-color: #2b2b2bd8;
 }
 
 .activeElement .habilidadTitle {
@@ -116,12 +235,20 @@ a:hover{
   margin: 29px 23px 0 23px;
 }
 
+@keyframes slideInOut {
+  from {transform: scale(0.9,1);}
+  to {transform: scale(1,1.1);}
+}
+
 .activeElement img {
   position: relative;
   opacity: 1;
   z-index: 3;
-  transform: scale(1.1);
-  transition: transform 0.5s ease-out;
+  transform: scale(0.9,1);
+  animation-name: slideInOut;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  transition: opacity 0.3s ease-in;
 }
 
 .activeElement .idBig {
@@ -232,3 +359,4 @@ a:hover{
 .pokedex:hover{
   opacity: 1;
 }
+
