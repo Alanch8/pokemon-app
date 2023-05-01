@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { IPokemons } from "src/app/shared/interfaces/schema-carousel";
-import { PokemonCarouselService } from "src/app/shared/services/pokemon-carousel.service";
+import { Carrousel } from "src/app/core/constants/carrousel";
+import { Image } from "src/app/core/constants/images";
+import { PokemonCarouselService } from "src/app/shared/services/carousel.service";
+import { CarrouselPokemon } from "src/app/shared/interfaces/carrousel/carrousel.interface";
 
 @Component({
   selector: "app-carousel",
@@ -10,37 +12,34 @@ import { PokemonCarouselService } from "src/app/shared/services/pokemon-carousel
   styleUrls: ["./carousel.component.scss"],
 })
 export class CarouselComponent implements OnInit {
-  pokemonLit$!: Observable<IPokemons[]>;
-
-  allPokemons: IPokemons[] = [];
-
-  active = 2;
+  api_images = Image.API_IMAGES;
+  api_format_images = Image.API_FORMAT_IMAGES;
+  active = Carrousel.ACTIVE_CARROUSEL;
+  pokemonCarrousel$!: Observable<CarrouselPokemon[]>;
+  allPokemons: CarrouselPokemon[] = [];
+  firstOne = this.allPokemons[0];
+  lastOne = this.allPokemons[this.allPokemons.length - 1];
 
   constructor(private pokemonCarousel: PokemonCarouselService) {}
 
   ngOnInit(): void {
+    const offset = Carrousel.OFFSET_RANDOM;
+    this.pokemonCarrousel$ = this.pokemonCarousel
+      .watch({ limit: 10, offset })
+      .valueChanges.pipe(map((result) => result.data.pokemonsCarrousel));
 
-    const offset = Math.floor(Math.random() * 1008 - 10);
-
-    this.pokemonLit$ = this.pokemonCarousel
-    .watch({ limit: 10, offset })
-    .valueChanges
-    .pipe(map((result) => result.data.pokemons));
-
-    this.pokemonLit$.subscribe((data) => {
+    this.pokemonCarrousel$.subscribe((data) => {
       this.allPokemons = data;
     });
   }
 
-  prev(){
-    const last = this.allPokemons[this.allPokemons.length - 1];
-    this.allPokemons = this.allPokemons.slice(0, this.allPokemons.length -1);
-    this.allPokemons = [last, ...this.allPokemons];
+  prev() {
+    this.allPokemons = this.allPokemons.slice(0, this.allPokemons.length - 1);
+    this.allPokemons = [this.lastOne, ...this.allPokemons];
   }
 
-  next(){
-    const first = this.allPokemons[0];
-    this.allPokemons = this.allPokemons.slice(1,this.allPokemons.length);
-    this.allPokemons = [...this.allPokemons, first];
+  next() {
+    this.allPokemons = this.allPokemons.slice(1, this.allPokemons.length);
+    this.allPokemons = [...this.allPokemons, this.firstOne];
   }
 }

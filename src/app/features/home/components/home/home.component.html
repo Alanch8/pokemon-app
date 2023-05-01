@@ -4,11 +4,13 @@
       <div class="flex">
         <div class="card-1">
           <img
-            src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/video-games/_tiles/pokemon-scarlet-violet/events/2023/04242023/scarlet-violet-169-es.png"
+            [src]="news1"
             alt="Inteleon llega como un soplo de aire fresco a las teraincursiones"
           />
           <div class="card card-content-1">
-            <h3 class="font-title">Inteleon comes as a breath of fresh air to teraincursions</h3>
+            <h3 class="font-title">
+              Inteleon comes as a breath of fresh air to teraincursions
+            </h3>
             <p>
               It will appear stealthily in the black crystal teraincursions of
               the
@@ -19,11 +21,7 @@
               y <span>Pokémon Purple</span> y will be of type Ice.
             </p>
             <div class="pegi">
-              <img
-                style="border-radius: 0px"
-                src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/video-games/rating-logos/PEGI_7.jpg"
-                alt="PEGI"
-              />
+              <img style="border-radius: 0px" [src]="pegi" alt="PEGI" />
             </div>
           </div>
         </div>
@@ -31,7 +29,7 @@
       <div class="flex">
         <div class="card-2">
           <img
-            src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/video-games/_tiles/pokemon-masters/2023/04282023/pokemon-masters-ex-169.png"
+            [src]="news2"
             alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
           />
           <div class="card-content-2">
@@ -42,7 +40,7 @@
         </div>
         <div class="card-3">
           <img
-            src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/video-games/_tiles/pokemon-scarlet-violet/events/2023/global-challenge/03/global-challenge-169-es.png"
+            [src]="news3"
             alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
           />
           <div class="card-content-3">
@@ -56,7 +54,7 @@
     <div class="col-33">
       <div class="card-4">
         <img
-          src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/trading-card-game/_tiles/sv/sv01/triple-play/sv01-triple-play-169-es.png"
+          [src]="news4"
           alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
         />
         <div class="card-content-4">
@@ -68,7 +66,7 @@
       </div>
       <div class="card-5">
         <img
-          src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/video-games/_tiles/pokemon-unite/2023/04272023/pokemon-unite-169.png"
+          [src]="news5"
           alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
         />
         <div class="card-content-5">
@@ -79,7 +77,7 @@
       </div>
       <div class="card-6">
         <img
-          src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/watch-pokemon-tv/_tiles/stunts/bouquet/bouquet-34-es.png"
+          [src]="news6"
           alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
         />
         <div class="card-content-6">
@@ -96,7 +94,7 @@
       <div class="flex">
         <div class="card-7">
           <img
-            src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/video-games/_tiles/pokemon-scarlet-violet/events/2023/04252023/scarlet-violet-169-es.png"
+            [src]="news7"
             alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
           />
           <div class="card-content-7">
@@ -107,7 +105,7 @@
         </div>
         <div class="card-8">
           <img
-            src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/trading-card-game/_tiles/sv/sv01/art-highlights/sv01-art-highlights-169-es.png"
+            [src]="news8"
             alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
           />
           <div class="card-content-8">
@@ -120,13 +118,17 @@
       <div class="flex">
         <div class="card-9">
           <img
-            src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/trading-card-game/series/incrementals/paldea-legends-tin/paldea-legends-tin-169-es.png"
+            [src]="news9"
             alt="Go down in history with the Pokémon TCG Pokémon Legends of Paldea Tin"
           />
           <div class="card card-content-9">
-            <h3 class="font-title">Go down in history with the Pokémon TCG Pokémon Legends of Paldea Tin</h3>
+            <h3 class="font-title">
+              Go down in history with the Pokémon TCG Pokémon Legends of Paldea
+              Tin
+            </h3>
             <p>
-              Reach the top with Koraidon ex or Miraidon ex and their fantastic attacks and abilities.
+              Reach the top with Koraidon ex or Miraidon ex and their fantastic
+              attacks and abilities.
             </p>
           </div>
         </div>
@@ -135,18 +137,19 @@
     <div class="col-33">
       <div class="card-10">
         <img
-          src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/video-games/_tiles/pokemon-scarlet-violet/2023/04172023/scarlet-violet-169-es.png"
+          [src]="news10"
           alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
         />
         <div class="card-content-10">
           <h3 class="font-title">
-            Newly discovered Pokémon in The Treasure Trove of Area Zero for <span>Scarlet and Purple</span>!
+            Newly discovered Pokémon in The Treasure Trove of Area Zero for
+            <span>Scarlet and Purple</span>!
           </h3>
         </div>
       </div>
       <div class="card-11">
         <img
-          src="https://www.pokemon.com/static-assets/content-assets/cms2-es-es/img/watch-pokemon-tv/_tiles/movie22/movie22-on-ptv-169-es.png"
+          [src]="news11"
           alt="Investiga a la Fundación Æther con Tilo (Traje S) y Tapu Koko"
         />
         <div class="card-content-11">
@@ -155,6 +158,7 @@
           </h3>
         </div>
       </div>
+    </div>
   </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
