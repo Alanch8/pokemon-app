@@ -1,13 +1,25 @@
 <h2>Pokémon</h2>
 <form [formGroup]="myform">
   <label>Filter</label>
-  <input matInput formControlName="search" (keyup)="applyFilter()" #input />
+  <input
+    matInput
+    placeholder="Number or Name..."
+    formControlName="search"
+    (keyup)="applyFilter()"
+    #input
+  />
 </form>
 <button (click)="pokedexAsc()">Asc</button>
 <button (click)="pokedexDesc()">Desc</button>
 <button (click)="pokedexAZ()">A-Z</button>
 <button (click)="pokedexZA()">Z-A</button>
-<div *ngIf="this.myform.get('search')?.value === ''; else noFiltered">
+<div
+  infinite-scroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScroll()"
+  *ngIf="this.myform.get('search')?.value === ''; else noFiltered"
+>
   <ul>
     <li *ngFor="let pokemon of pokemon$ | async">
       <a routerLink="/pokedex/{{ pokemon.id }}">
@@ -33,3 +45,8 @@
     </li>
   </ul>
 </ng-template>
+<div class="button-container mb-4">
+  <button class="buttonLoad px-3 py-2" (click)="loadMore()" *ngIf="button">
+    Load more
+  </button>
+</div>
