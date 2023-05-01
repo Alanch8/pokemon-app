@@ -20,6 +20,10 @@ export class PokedexComponent implements OnInit {
   name = PokedexConst.NAME_ORDERBY;
   api_image = Image.API_IMAGES;
   api_format_image = Image.API_FORMAT_IMAGES;
+  button = true;
+  loadMoreClick = false;
+  offset = 0;
+  limit = 12;
 
   constructor(private pokedexList: GetPokedex) {}
 
@@ -45,30 +49,61 @@ export class PokedexComponent implements OnInit {
           })
         )
       )
-      .subscribe((pokemon$) => (this.filteredPokemon$ = of(pokemon$)));
+      .subscribe(
+        (pokemon$: Pokedex[]) => (this.filteredPokemon$ = of(pokemon$))
+      );
   }
 
   pokedexAsc() {
     this.pokemon$ = this.pokedexList
-      .watch({ limit: 1008, offset: 0, order_by: { [this.id]: "asc" } })
+      .watch({
+        limit: this.limit,
+        offset: 0,
+        order_by: { [this.id]: "asc" },
+      })
       .valueChanges.pipe(map((pokemon) => pokemon.data.pokedex));
   }
 
   pokedexDesc() {
     this.pokemon$ = this.pokedexList
-      .watch({ limit: 1008, offset: 0, order_by: { [this.id]: "desc" } })
+      .watch({
+        limit: this.limit,
+        offset: 0,
+        order_by: { [this.id]: "desc" },
+      })
       .valueChanges.pipe(map((result) => result.data.pokedex));
   }
 
   pokedexAZ() {
     this.pokemon$ = this.pokedexList
-      .watch({ limit: 1008, offset: 0, order_by: { [this.name]: "asc" } })
+      .watch({
+        limit: this.limit,
+        offset: 0,
+        order_by: { [this.name]: "asc" },
+      })
       .valueChanges.pipe(map((result) => result.data.pokedex));
   }
 
   pokedexZA() {
     this.pokemon$ = this.pokedexList
-      .watch({ limit: 1008, offset: 0, order_by: { [this.name]: "desc" } })
+      .watch({
+        limit: this.limit,
+        offset: 0,
+        order_by: { [this.name]: "desc" },
+      })
       .valueChanges.pipe(map((result) => result.data.pokedex));
+  }
+
+  onScroll() {
+    if (this.loadMoreClick) {
+      this.loadMore();
+    }
+  }
+
+  loadMore() {
+    this.loadMoreClick = true;
+    this.button = false;
+    this.limit += 12;
+    this.pokedexAsc();
   }
 }

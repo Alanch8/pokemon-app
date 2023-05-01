@@ -8,17 +8,19 @@ import { GraphQLModule } from "./graphql.module";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CoreModule } from "./core/core.module";
+import { MaterialModule } from "./material/material.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    CoreModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     GraphQLModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CoreModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
