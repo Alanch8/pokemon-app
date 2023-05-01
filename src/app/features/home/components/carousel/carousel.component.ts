@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 import { Carrousel } from "src/app/core/constants/carrousel";
 import { Image } from "src/app/core/constants/images";
 import { PokemonCarouselService } from "src/app/shared/services/carousel.service";
@@ -17,16 +17,17 @@ export class CarouselComponent implements OnInit {
   active = Carrousel.ACTIVE_CARROUSEL;
   pokemonCarrousel$!: Observable<CarrouselPokemon[]>;
   allPokemons: CarrouselPokemon[] = [];
-  firstOne = this.allPokemons[0];
-  lastOne = this.allPokemons[this.allPokemons.length - 1];
 
   constructor(private pokemonCarousel: PokemonCarouselService) {}
 
   ngOnInit(): void {
     const offset = Carrousel.OFFSET_RANDOM;
-    this.pokemonCarrousel$ = this.pokemonCarousel
+    (this.pokemonCarrousel$ = this.pokemonCarousel
       .watch({ limit: 10, offset })
-      .valueChanges.pipe(map((result) => result.data.pokemonsCarrousel));
+      .valueChanges.pipe(
+        tap((result) => console.log(result)),
+        map((result) => result.data.pokemonsCarrousel),
+        tap((result) => console.log(result))));
 
     this.pokemonCarrousel$.subscribe((data) => {
       this.allPokemons = data;
@@ -34,12 +35,14 @@ export class CarouselComponent implements OnInit {
   }
 
   prev() {
+    const lastOne = this.allPokemons[this.allPokemons.length - 1];
     this.allPokemons = this.allPokemons.slice(0, this.allPokemons.length - 1);
-    this.allPokemons = [this.lastOne, ...this.allPokemons];
+    this.allPokemons = [lastOne, ...this.allPokemons];
   }
 
   next() {
+    const firstOne = this.allPokemons[0];
     this.allPokemons = this.allPokemons.slice(1, this.allPokemons.length);
-    this.allPokemons = [...this.allPokemons, this.firstOne];
+    this.allPokemons = [...this.allPokemons, firstOne];
   }
 }

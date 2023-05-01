@@ -20,8 +20,24 @@
           <div class="card-content-info">
             <p class="id">{{ pokemon.id }}</p>
             <p class="tipoTitle">Type</p>
-            <div class="tipo">
-              {{ pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name }}
+            <div class="tipos">
+              <div
+                class="tipo"
+                [ngClass]="
+                  pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name
+                "
+              >
+                {{ pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name }}
+              </div>
+              <div
+                *ngIf="pokemon.pokemon_v2_pokemontypes[1]"
+                class="tipo"
+                [ngClass]="
+                  pokemon.pokemon_v2_pokemontypes[1].pokemon_v2_type.name
+                "
+              >
+                {{ pokemon.pokemon_v2_pokemontypes[1].pokemon_v2_type.name }}
+              </div>
             </div>
             <p class="habilidadTitle">Ability</p>
             <div class="habilidad">
