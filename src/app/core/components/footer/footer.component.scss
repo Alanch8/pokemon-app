@@ -1,42 +1,69 @@
-.global-footer{
+.global-footer {
+  width: 100%;
+  display: flex;
+  padding: 20px 0px;
+  justify-content: space-between;
+  background-color: #1f1f1f;
+}
+
+.col-1 {
+  margin-left: 20px;
+  width: 33.33%;
+}
+
+.col-3 {
+  margin-right: 20px;
+  justify-content: center;
+  width: 33.33%;
+}
+
+.col-3 ul {
+  list-style-type: none;
+  font-size: 10px;
+  line-height: 1.1em;
+}
+
+@media only screen and (min-width: 768px) {
+  .global-footer {
     width: 100%;
     display: flex;
     padding: 20px 0px;
     justify-content: space-between;
-    background-color: #1F1F1F;
-}
+    background-color: #1f1f1f;
+  }
 
-.col-1{
+  .col-1 {
     margin-left: 300px;
     width: 33.33%;
     border-right: 2px solid black;
-}
+  }
 
-.col-2{
+  .col-2 {
     margin: 20px;
     width: 33.33%;
     background-image: url("https://assets.pokemon.com/static2/_ui/img/footer/social-icons.png");
     background-repeat: no-repeat;
-}
+  }
 
-.col-3{
+  .col-3 {
     margin-right: 300px;
     justify-content: center;
     width: 33.33%;
     border-left: 2px solid black;
-}
+  }
 
-.col-3 ul {
+  .col-3 ul {
     list-style-type: none;
     font-size: 10px;
     line-height: 1.1em;
-}
+  }
 
-.caru{
+  .caru {
     width: 250px;
     height: 57px;
     margin: 20px;
     padding: 0;
     background-image: url("https://assets.pokemon.com/static2/_ui/img/footer/thepokemoncompanyinternational-seal-1596150491.png");
     background-repeat: no-repeat;
+  }
 }
