@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { map, tap } from "rxjs/operators";
+import { map } from "rxjs/operators";
 import { Carrousel } from "src/app/core/constants/carrousel";
 import { Image } from "src/app/core/constants/images";
 import { PokemonCarouselService } from "src/app/shared/services/carousel.service";
@@ -22,12 +22,9 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     const offset = Carrousel.OFFSET_RANDOM;
-    (this.pokemonCarrousel$ = this.pokemonCarousel
+    this.pokemonCarrousel$ = this.pokemonCarousel
       .watch({ limit: 10, offset })
-      .valueChanges.pipe(
-        tap((result) => console.log(result)),
-        map((result) => result.data.pokemonsCarrousel),
-        tap((result) => console.log(result))));
+      .valueChanges.pipe(map((result) => result.data.pokemonsCarrousel));
 
     this.pokemonCarrousel$.subscribe((data) => {
       this.allPokemons = data;
