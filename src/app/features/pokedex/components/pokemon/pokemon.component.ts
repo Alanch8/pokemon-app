@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Pokemon } from "src/app/shared/interfaces/pokemon/pokemon.interface";
 import { GetPokemon } from "src/app/shared/services/pokemon.service";
@@ -25,7 +25,7 @@ export class PokemonComponent implements OnInit {
     this.myPokemonform = new FormGroup({
       name: new FormControl("", [Validators.required]),
       id: new FormControl("", [Validators.required]),
-      // description: new FormControl("", [Validators.required]),
+      description: new FormControl("", [Validators.required]),
       height: new FormControl("", [Validators.required]),
       weight: new FormControl("", [Validators.required]),
       nameAbilities: new FormControl("", [Validators.required]),
@@ -36,8 +36,7 @@ export class PokemonComponent implements OnInit {
       numberStat: new FormControl("", [Validators.required]),
       evolution: new FormControl("", [Validators.required]),
       evolutionName: new FormControl("", [Validators.required]),
-      evolutionType: new FormControl(""),
-      // evolutionTypeType: new FormControl("", [Validators.required]),
+      // evolutionType: new FormControl("", [Validators.required]),
     });
   }
 
@@ -45,7 +44,10 @@ export class PokemonComponent implements OnInit {
     return this.route.params.subscribe((routeParams) => {
       this.pokemon$ = this.getPokemon
         .watch({ id: routeParams["id"] })
-        .valueChanges.pipe(map((result) => result.data.pokemon));
+        .valueChanges.pipe(
+          tap((response) => console.log(response)),
+          map((result) => result.data.pokemon)
+        );
     });
   }
 }

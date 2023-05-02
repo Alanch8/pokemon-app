@@ -54,6 +54,13 @@ export class GetPokemon extends Query<PokemonArray> {
               }
             }
           }
+          pokemon_v2_pokemonspeciesflavortexts(
+            where: { language_id: { _eq: 9 } }
+            order_by: { version_id: desc }
+            limit: 1
+          ) {
+            flavor_text
+          }
         }
       }
     }

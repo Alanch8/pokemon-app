@@ -12,9 +12,22 @@
             [src]="api_image + (pokemon$ | async)?.id + api_format_image"
           />
         </div>
-        <!-- <div>Description (Falta)</div><br /> -->
+        <br />
         <div>
           <div class="info">
+            <div>
+              Description
+              <input
+                type="text"
+                readonly
+                formControlName="description"
+                *ngFor="
+                  let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
+                    ?.pokemon_v2_pokemonspeciesflavortexts
+                "
+                placeholder="{{ pokemon.flavor_text }}"
+              />
+            </div>
             <div>
               Height
               <input
@@ -97,67 +110,45 @@
       </div>
       <div></div>
       <br />
-
-      <!-- <div>
-        Stats Name:
+      <div>
+        Base Stats
         <input
           type="text"
           readonly
           formControlName="nameStat"
           *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonstats"
-          placeholder="{{ pokemon.pokemon_v2_stat.name }}"
+          placeholder="{{ pokemon.base_stat }} {{
+            pokemon.pokemon_v2_stat.name
+          }}"
         /><br />
-        Stats Number:
-        <input
-          type="text"
-          readonly
-          formControlName="numberStat"
-          *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonstats"
-          placeholder="{{ pokemon.base_stat }}"
-        />
-      </div> -->
-
-      <!-- <div>
-        Evolution Pokemon ID:
-        <input
-          type="text"
-          readonly
-          formControlName="evolution"
-          *ngFor="
-            let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
-              ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
-          "
-          placeholder="{{ pokemon.id }}"
-        />
-      </div> -->
-      <br />
+      </div>
       <div class="evo-title-cont">
         <p class="evo-title">Evolutions</p>
-      <div class="evolutions">
-        <div
-          class="pokemon-evolution"
-          type="text"
-          readonly
-          *ngFor="
-            let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
-              ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
-          "
-        >
-          <div class="container-img">
-            <img
-              class="evolution-img"
-              [src]="api_image + pokemon.id + api_format_image"
-            />
-          </div>
-          <input
-            class="evolution-name"
+        <div class="evolutions">
+          <div
+            class="pokemon-evolution"
             type="text"
             readonly
-            formControlName="evolutionName"
-            placeholder="{{ pokemon.name }}"
-          />
+            *ngFor="
+              let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
+                ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
+            "
+          >
+            <div class="container-img" routerLink="/pokedex/{{ pokemon.id }}">
+              <img
+                class="evolution-img"
+                [src]="api_image + pokemon.id + api_format_image"
+              />
+            </div>
+            <input
+              class="evolution-name"
+              type="text"
+              readonly
+              formControlName="evolutionName"
+              placeholder="{{ pokemon.name }} N.º {{ pokemon.id }}"
+            />
+          </div>
         </div>
-      </div>
       </div>
       <!-- <div>
         Evolution Type (falta):
@@ -169,10 +160,12 @@
             let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
               ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
           "
-          placeholder="{{ pokemon.pokemon_v2_pokemons[0].pokemon_v2_type.name }}"
+          placeholder="{{
+            pokemon.pokemon_v2_pokemons[0].pokemon_v2_type.name
+          }}"
         />
-      </div> -->
-      <br />
+      </div>
+      <br /> -->
     </form>
   </div>
 </div>

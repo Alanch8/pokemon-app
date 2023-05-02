@@ -115,7 +115,7 @@
 //     top: 250px;
 //     left: 70px;
 //   }
-  
+
 //   .tipo {
 //     width: auto;
 //     margin: 0px 5px 0px 0px;
@@ -159,17 +159,18 @@
 .pokemon-evolution input::-webkit-input-placeholder {
     color: rgb(255, 255, 255);
   }
-  
+
   .pokemon-evolution input::-moz-placeholder {
     color: rgb(255, 255, 255);
   }
-  
+
   .pokemon-evolution input::-ms-input-placeholder {
     color: rgb(255, 255, 255);
   }
 
 .evolution-img{
     display: flex;
+    cursor: pointer;
     margin: 10px 0px;
     justify-content: center;
     align-items: center;
@@ -225,109 +226,109 @@
     color: #f1f1f1;
     background-color: #e60000d3;
   }
-  
+
   .grass {
     //color: #f1f1f1;
     color: #2b2b2b;
     background-color: #00e000d3;
   }
-  
+
   .water {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #0000ddd0;
   }
-  
+
   .electric {
     //color: #f1f1f1;
     color: #2b2b2b;
     background-color: #e0e000d2;
   }
-  
+
   .ice {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #00dfdfd7;
   }
-  
+
   .fighting {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #db00dbd3;
   }
-  
+
   .poison {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #830283d5;
   }
-  
+
   .ground {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #808000c7;
   }
-  
+
   .flying {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #008080d7;
   }
-  
+
   .psychic {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #ff1491c4;
   }
-  
+
   .bug {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #008000c0;
   }
-  
+
   .rock {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #808080be;
   }
-  
+
   .ghost {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #000080c9;
   }
-  
+
   .dark {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #000000ce;
   }
-  
+
   .dragon {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #800000b2;
   }
-  
+
   .steel {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #c0c0c0c7;
   }
-  
+
   .fairy {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #ffc0cbde;
   }
-  
+
   .normal {
     color: #f1f1f1;
     //color: #2b2b2b;
     background-color: #a9a9a9d2;
   }
-  
+
   .shadow {
     color: #f1f1f1;
     //color: #2b2b2b;
