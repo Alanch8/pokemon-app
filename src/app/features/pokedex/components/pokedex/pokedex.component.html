@@ -1,59 +1,82 @@
-<p>space</p>
-<p>space</p>
-<p>space</p>
-<h2>Pokémon</h2>
-<form [formGroup]="myform">
-  <label>Filter</label>
-  <input
-    matInput
-    placeholder="Number or Name..."
-    formControlName="search"
-    (keyup)="applyFilter()"
-    #input
-  />
-</form>
-<button (click)="pokedexAsc()">Asc</button>
-<button (click)="pokedexDesc()">Desc</button>
-<button (click)="pokedexAZ()">A-Z</button>
-<button (click)="pokedexZA()">Z-A</button>
-<div
-  infinite-scroll
-  [infiniteScrollDistance]="1"
-  [infiniteScrollThrottle]="500"
-  (scrolled)="onScroll()"
-  *ngIf="this.myform.get('search')?.value === ''; else noFiltered"
->
-  <ul>
-    <li *ngFor="let pokemon of pokemon$ | async">
-      <a routerLink="/pokedex/{{ pokemon.id }}">
-        <span>{{ pokemon.id }}</span> {{ pokemon.name }}
-        <span><img [src]="api_image + pokemon.id + api_format_image" /></span>
-        <span
-          >{{ pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name }}
-          <br />
-          <span *ngIf="pokemon.pokemon_v2_pokemontypes.length > 1">
-            {{ pokemon.pokemon_v2_pokemontypes[1].pokemon_v2_type.name }}
-          </span>
-        </span>
-      </a>
-    </li>
-  </ul>
-</div>
-<ng-template #noFiltered>
-  <ul>
-    <li *ngFor="let pokemon of filteredPokemon$ | async">
-      <a routerLink="/pokedex/{{ pokemon.id }}">
-        <span>{{ pokemon.id }}</span> {{ pokemon.name }}
-        <span><img [src]="api_image + pokemon.id + api_format_image" /></span>
-        <span>{{
-          pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name
-        }}</span>
-      </a>
-    </li>
-  </ul>
-</ng-template>
-<div class="button-container mb-4">
-  <button class="buttonLoad px-3 py-2" (click)="loadMore()" *ngIf="button">
-    Load more
-  </button>
+<div class="pokedex">
+  <div class="searchContainer">
+    <div class="searchOptions">
+      <form [formGroup]="myform">
+        <div class="inputContainer">
+          <label class="searchTitle">Name or number</label>
+          <div class="inputButton">
+            <input
+            class="searchInput"
+            matInput
+            placeholder=""
+            formControlName="search"
+            (keyup)="applyFilter()"
+            #input
+          />
+          <div class="searchButton"></div>
+          </div>
+        </div>
+      </form>
+      <div class="searchInfo">
+        Search for a Pokémon by name or <br />
+        using its National Pokédex number.
+      </div>
+    </div>
+  </div>
+  <div class="pokemons">
+    <h2 class="title">Pokédex</h2>
+    <div class="sort">
+      <button (click)="pokedexAsc()">Up</button>
+      <button (click)="pokedexDesc()">Down</button>
+      <button (click)="pokedexAZ()">A-Z</button>
+      <button (click)="pokedexZA()">Z-A</button>
+    </div>
+    <div
+      infinite-scroll
+      [infiniteScrollDistance]="1"
+      [infiniteScrollThrottle]="500"
+      (scrolled)="onScroll()"
+      *ngIf="this.myform.get('search')?.value === ''; else noFiltered"
+    >
+      <ul class="cardList">
+        <li class="card" *ngFor="let pokemon of pokemon$ | async">
+          <a routerLink="/pokedex/{{ pokemon.id }}">
+            <span>{{ pokemon.id }}</span> {{ pokemon.name }}
+            <span
+              ><img
+                class="pokemon-img"
+                [src]="api_image + pokemon.id + api_format_image"
+            /></span>
+            <span
+              >{{ pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name }}
+              <br />
+              <span *ngIf="pokemon.pokemon_v2_pokemontypes.length > 1">
+                {{ pokemon.pokemon_v2_pokemontypes[1].pokemon_v2_type.name }}
+              </span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ng-template #noFiltered>
+      <ul>
+        <li *ngFor="let pokemon of filteredPokemon$ | async">
+          <a routerLink="/pokedex/{{ pokemon.id }}">
+            <span>{{ pokemon.id }}</span> {{ pokemon.name }}
+            <span
+              ><img [src]="api_image + pokemon.id + api_format_image"
+            /></span>
+            <span>{{
+              pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name
+            }}</span>
+          </a>
+        </li>
+      </ul>
+    </ng-template>
+    <div class="button-container mb-4">
+      <button class="buttonLoad px-3 py-2" (click)="loadMore()" *ngIf="button">
+        Load more
+      </button>
+    </div>
+  </div>
 </div>

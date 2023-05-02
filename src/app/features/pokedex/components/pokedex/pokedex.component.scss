@@ -1,0 +1,150 @@
+.pokedex{
+    padding-top: 120px;
+    background: #fff
+    url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  margin: 0px auto 60px auto;
+  max-width: 1280px;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 10px 0px 10px;
+}
+
+.pokemons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    font-family: "BundayBold", sans-serif !important;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    margin: 60px auto;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 5px 10px 5px;
+  }
+
+.title{
+    font-family: "BundayRegular", sans-serif !important;
+    font-size: 35px;
+    color: #919191;
+    margin: 20px 0px 50px 250px;
+    text-align: left;
+}
+
+.cardList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 200px 120px;
+}
+
+.card{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pokemon-img{
+    width: 100px;
+    height: 100px;
+}
+
+.searchContainer{
+    font-family: "BundayRegular", sans-serif !important;
+    font-size: 20px;
+    z-index: 1;
+    position: absolute;
+    top: 160px;
+    left: 0px;
+    width: 100%;
+    height: 194px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #313131;
+}
+
+.searchOptions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputButton{
+    display: flex;
+    margin-top: 5px;
+}
+
+.searchTitle{
+    font-family: "BundayRegular", sans-serif !important;
+    font-size: 30px;
+    color: #fff;
+}
+
+.searchInput{
+    width: 260px;
+    height: 40px;
+    padding: 0px 0px 0px 10px;
+    border-radius: 5px;
+    border: 3px solid #707070;
+    outline: none;
+    font-size: 20px;
+    font-family: "BundayRegular", sans-serif !important;
+}
+
+.searchButton{
+    width: 60px;
+    height: 45px;
+    margin-left: 10px;
+    background-color: #ee6b2f;
+    background-image: url(https://assets.pokemon.com/static2/_ui/img/chrome/forms/input-search-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.searchInfo{
+    line-height: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 0px 50px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 5px;
+    background-color: #54b564;
+}
+
+.sort{
+    position: absolute;
+    top: 300px;
+    right: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

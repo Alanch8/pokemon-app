@@ -29,6 +29,7 @@
     "eslint-config-prettier": "^8.8.0",
     "graphql": "^16",
     "ngx-infinite-scroll": "^15.0.0",
+    "primeflex": "^3.3.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
