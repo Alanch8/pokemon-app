@@ -1,156 +1,178 @@
-<a routerLink="/pokedex">Return to Pokemon list</a>
-<form [formGroup]="myPokemonform">
-  <label
-    >Pokemon Image
-    <img [src]="api_image + (pokemon$ | async)?.id + api_format_image" /></label
-  ><br />
-  <label>
-    Name
-    <input
-      type="text"
-      readonly
-      formControlName="name"
-      placeholder="{{ (pokemon$ | async)?.name }}" /></label
-  ><br />
-  <label>
-    ID
-    <input
-      type="text"
-      readonly
-      formControlName="id"
-      placeholder="#{{ (pokemon$ | async)?.id }}" /></label
-  ><br />
-  <label>Description (Falta)</label><br />
-  <label>
-    Height
-    <input
-      type="text"
-      readonly
-      formControlName="height"
-      placeholder="{{ (pokemon$ | async)?.height }} cm" /></label
-  ><br />
-  <label>
-    Weight
-    <input
-      type="text"
-      readonly
-      formControlName="weight"
-      placeholder="{{ (pokemon$ | async)?.weight }} g" /></label
-  ><br />
-  <label>Gender (Hardcoded)</label><br />
-  <label>Category (Falta)</label><br />
-  <label>
-    Abilities:
-    <input
-      type="text"
-      readonly
-      formControlName="nameAbilities"
-      *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonabilities"
-      placeholder="{{ pokemon.pokemon_v2_ability.name }}"
-    /><br />
-    Abilities Description:
-    <input
-      type="text"
-      readonly
-      formControlName="abilitiesDescription"
-      *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonabilities"
-      placeholder="{{
-        pokemon.pokemon_v2_ability.pokemon_v2_abilityeffecttexts[1].short_effect
-      }}"
-    /><br />
-  </label>
-  <label>
-    Type:
-    <input
-      type="text"
-      readonly
-      formControlName="types"
-      *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemontypes"
-      placeholder="{{ pokemon.pokemon_v2_type.name }}"
-    /> </label
-  ><br />
-  <label>
-    Weakness (Falta sacarlos todos):
-    <input
-      type="text"
-      readonly
-      formControlName="weakness"
-      *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemontypes"
-      placeholder="{{
-        pokemon.pokemon_v2_type.pokemonV2TypeefficaciesByTargetTypeId[0]
-          .pokemon_v2_type.name
-      }}"
-    /> </label
-  ><br />
-  <label>
-    Stats Name:
-    <input
-      type="text"
-      readonly
-      formControlName="nameStat"
-      *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonstats"
-      placeholder="{{ pokemon.pokemon_v2_stat.name }}"
-    /><br />
-    Stats Number:
-    <input
-      type="text"
-      readonly
-      formControlName="numberStat"
-      *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonstats"
-      placeholder="{{ pokemon.base_stat }}"
-    /> </label
-  ><br />
-  <label>
-    Evolution Pokemon ID:
-    <input
-      type="text"
-      readonly
-      formControlName="evolution"
-      *ngFor="
-        let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
-          ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
-      "
-      placeholder="{{ pokemon.id }}"
-    /> </label
-  ><br />
-  <label>
-    Evolution Image:
-    <div
-      type="text"
-      readonly
-      *ngFor="
-        let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
-          ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
-      "
-    >
-      <span
-        ><img [src]="api_image + pokemon.id + api_format_image"
-      /></span></div></label
-  ><br />
-  <label>
-    Evolution Name:
-    <input
-      type="text"
-      readonly
-      formControlName="evolutionName"
-      *ngFor="
-        let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
-          ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
-      "
-      placeholder="{{ pokemon.name }}"
-    /> </label
-  ><br />
-  <label>
-    Evolution Type (falta):
-    <!-- <input
-      type="text"
-      readonly
-      formControlName="evolutionType"
-      *ngFor="
-        let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
-          ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
-      "
-      placeholder="{{ pokemon.pokemon_v2_pokemons[0].pokemon_v2_type.name }}"
-    /> --></label
-  ><br />
-</form>
+<div class="pokemon-page">
+  <div class="pokemon">
+    <h2 class="title">
+      {{ (pokemon$ | async)?.name }}
+      <span>N.º {{ (pokemon$ | async)?.id }}</span>
+    </h2>
+    <form [formGroup]="myPokemonform">
+      <div class="firstSection">
+        <div class="card-img">
+          <img
+            class="pokemon-img"
+            [src]="api_image + (pokemon$ | async)?.id + api_format_image"
+          />
+        </div>
+        <!-- <div>Description (Falta)</div><br /> -->
+        <div>
+          <div class="info">
+            <div>
+              Height
+              <input
+                type="text"
+                readonly
+                formControlName="height"
+                placeholder="{{ (pokemon$ | async)?.height }} cm"
+              />
+            </div>
+            <br />
+            <div>
+              Weight
+              <input
+                type="text"
+                readonly
+                formControlName="weight"
+                placeholder="{{ (pokemon$ | async)?.weight }} g"
+              />
+            </div>
+            <br />
+            <!-- <div>Gender (Hardcoded)</div><br />
+            <div>Category (Falta)</div><br /> -->
+            <div>
+              Abilities:
+              <input
+                type="text"
+                readonly
+                formControlName="nameAbilities"
+                *ngFor="
+                  let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonabilities
+                "
+                placeholder="{{ pokemon.pokemon_v2_ability.name }}"
+              /><br />
+              Abilities Description:
+              <input
+                type="text"
+                readonly
+                formControlName="abilitiesDescription"
+                *ngFor="
+                  let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonabilities
+                "
+                placeholder="{{
+                  pokemon.pokemon_v2_ability.pokemon_v2_abilityeffecttexts[1]
+                    .short_effect
+                }}"
+              />
+            </div>
+          </div>
+          <div class="types-container">
+            <div class="type">
+              Type:
+              <input
+                type="text"
+                readonly
+                formControlName="types"
+                *ngFor="
+                  let pokemon of (pokemon$ | async)?.pokemon_v2_pokemontypes
+                "
+                placeholder="{{ pokemon.pokemon_v2_type.name }}"
+              />
+            </div>
+            <div class="type">
+              Weakness:
+              <input
+                type="text"
+                readonly
+                formControlName="weakness"
+                *ngFor="
+                  let pokemon of (pokemon$ | async)?.pokemon_v2_pokemontypes
+                "
+                placeholder="{{
+                  pokemon.pokemon_v2_type
+                    .pokemonV2TypeefficaciesByTargetTypeId[0].pokemon_v2_type
+                    .name
+                }}"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div></div>
+      <br />
+
+      <!-- <div>
+        Stats Name:
+        <input
+          type="text"
+          readonly
+          formControlName="nameStat"
+          *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonstats"
+          placeholder="{{ pokemon.pokemon_v2_stat.name }}"
+        /><br />
+        Stats Number:
+        <input
+          type="text"
+          readonly
+          formControlName="numberStat"
+          *ngFor="let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonstats"
+          placeholder="{{ pokemon.base_stat }}"
+        />
+      </div> -->
+
+      <!-- <div>
+        Evolution Pokemon ID:
+        <input
+          type="text"
+          readonly
+          formControlName="evolution"
+          *ngFor="
+            let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
+              ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
+          "
+          placeholder="{{ pokemon.id }}"
+        />
+      </div> -->
+      <br />
+      <div class="evo-title-cont">
+        <p class="evo-title">Evolutions</p>
+      <div class="evolutions">
+        <div
+          class="pokemon-evolution"
+          type="text"
+          readonly
+          *ngFor="
+            let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
+              ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
+          "
+        >
+          <div class="container-img">
+            <img
+              class="evolution-img"
+              [src]="api_image + pokemon.id + api_format_image"
+            />
+          </div>
+          <input
+            class="evolution-name"
+            type="text"
+            readonly
+            formControlName="evolutionName"
+            placeholder="{{ pokemon.name }}"
+          />
+        </div>
+      </div>
+      </div>
+      <!-- <div>
+        Evolution Type (falta):
+        <input
+          type="text"
+          readonly
+          formControlName="evolutionType"
+          *ngFor="
+            let pokemon of (pokemon$ | async)?.pokemon_v2_pokemonspecy
+              ?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
+          "
+          placeholder="{{ pokemon.pokemon_v2_pokemons[0].pokemon_v2_type.name }}"
+        />
+      </div> -->
+      <br />
+    </form>
+  </div>
+</div>
