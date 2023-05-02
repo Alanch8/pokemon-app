@@ -15,6 +15,7 @@ import { GetPokedex } from "src/app/shared/services/pokedex.service";
 export class PokedexComponent implements OnInit {
   public myform!: FormGroup;
   pokemon$!: Observable<Pokedex[]>;
+  pokemonSearch$!: Observable<Pokedex[]>;
   filteredPokemon$!: Observable<Pokedex[]>;
   id = PokedexConst.ID_ORDERBY;
   name = PokedexConst.NAME_ORDERBY;
@@ -29,13 +30,14 @@ export class PokedexComponent implements OnInit {
 
   ngOnInit() {
     this.pokedexAsc();
+    this.searchRequest();
     this.myform = new FormGroup({
       search: new FormControl("", [Validators.required]),
     });
   }
 
   applyFilter() {
-    this.pokemon$
+    this.pokemonSearch$
       .pipe(
         map((pokemons) =>
           pokemons.filter((pokemon) => {
@@ -52,6 +54,15 @@ export class PokedexComponent implements OnInit {
       .subscribe(
         (pokemon$: Pokedex[]) => (this.filteredPokemon$ = of(pokemon$))
       );
+  }
+
+  searchRequest() {
+    this.pokemonSearch$ = this.pokedexList
+      .watch({
+        limit: 1008,
+        offset: 0,
+      })
+      .valueChanges.pipe(map((pokemon) => pokemon.data.pokedex));
   }
 
   pokedexAsc() {
