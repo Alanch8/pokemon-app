@@ -28,9 +28,13 @@
       <a routerLink="/pokedex/{{ pokemon.id }}">
         <span>{{ pokemon.id }}</span> {{ pokemon.name }}
         <span><img [src]="api_image + pokemon.id + api_format_image" /></span>
-        <span>{{
-          pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name
-        }}</span>
+        <span
+          >{{ pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.name }}
+          <br />
+          <span *ngIf="pokemon.pokemon_v2_pokemontypes.length > 1">
+            {{ pokemon.pokemon_v2_pokemontypes[1].pokemon_v2_type.name }}
+          </span>
+        </span>
       </a>
     </li>
   </ul>
