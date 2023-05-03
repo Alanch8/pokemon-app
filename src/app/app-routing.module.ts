@@ -1,12 +1,17 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { Error404PageComponent } from "./shared/pages/error404-page/error404-page.component";
+import { LoginComponent } from "./core/components/login/login.component";
 
 const routes: Routes = [
   {
     path: "home",
     loadChildren: () =>
       import("./features/home/home.module").then((m) => m.HomeModule),   
+  },
+  {
+    path: "login",
+    component: LoginComponent,
   },
   {
     path: "pokedex",

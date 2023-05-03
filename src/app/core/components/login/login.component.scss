@@ -1,0 +1,42 @@
+.loginPage {
+  background: #fff
+    url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  margin: 0px auto 60px auto;
+  max-width: 1280px;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 10px 0px 10px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    font-family: "BundayBold", sans-serif !important;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    margin: 60px auto;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 5px 10px 5px;
+  }
+
+.btn {
+  text-transform: unset !important;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid rgba(255, 0, 0, 0.5);
+}
