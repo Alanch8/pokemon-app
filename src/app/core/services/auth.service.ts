@@ -6,11 +6,11 @@ import { Router } from "@angular/router";
   providedIn: "root",
 })
 export class AuthService {
-  private URL = "http://localhost:49220/api";
+  private URL = "http://localhost:64080/api";
   constructor(private http: HttpClient, private router: Router) {}
 
   logIn(user: { Username: string; Password: string }) {
-    return this.http.post<typeof user>(this.URL + "/login/authenticate", user);
+    return this.http.post<string>(this.URL + "/login/authenticate", user);
   }
 
   loggedIn() {
